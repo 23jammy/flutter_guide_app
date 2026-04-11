@@ -26,6 +26,86 @@ class _ModifiersLayoutState extends State<ModifiersLayout> {
   // Alignment State
   Alignment align = Alignment.center;
 
+  // A helper to create box
+
+  Widget _buildBox(String text, Color color, {double width = 60, double height = 60}) {
+    return Container(
+      width: width,
+      height: height,
+      color: color,
+      alignment: Alignment.center,
+      child: Text(
+        text,
+        textAlign: TextAlign.center,
+        style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500),
+      ),
+    );
+  }
+
+  // A helper for live rendering
+
+  Widget _buildCanvasContent() {
+    switch (selectedModifier) {
+      
+      case 'Flex Widget':
+        return Row(
+          children: [
+            _buildBox('Fixed', Colors.red, width: 60),
+            
+            // Reads your pill button state!
+            if (flexType == 'Expanded')
+              Expanded(child: _buildBox('Expanded', Colors.green)),
+            if (flexType == 'Flexible')
+              Flexible(child: _buildBox('Flexible\n(w-80)', Colors.green, width: 80)),
+              
+            _buildBox('Fixed', Colors.blue, width: 60),
+          ],
+        );
+
+      case 'SizedBox':
+        return Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            _buildBox('Box 1', Colors.teal),
+            // Reads your gapSize slider!
+            SizedBox(width: gapSize), 
+            _buildBox('Box 2', Colors.teal),
+          ],
+        );
+
+      case 'Padding':
+        return Container(
+          color: Colors.amber.shade100, // Light background to see the padding
+          child: Padding(
+            // Reads all four of your padding sliders!
+            padding: EdgeInsets.only(
+              top: padTop,
+              bottom: padBottom,
+              left: padLeft,
+              right: padRight,
+            ),
+            // The inner box fills the remaining space so you can see the edges push in
+            child: _buildBox('Inner Box', Colors.deepOrange, width: double.infinity, height: double.infinity),
+          ),
+        );
+
+      case 'Align':
+        return Container(
+          width: double.infinity,
+          height: double.infinity,
+          color: Colors.blueGrey.shade50,
+          child: Align(
+            // Reads your Alignment dropdown!
+            alignment: align, 
+            child: _buildBox('Target', Colors.indigo, width: 80, height: 80),
+          ),
+        );
+
+      default:
+        return const SizedBox.shrink();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -372,6 +452,30 @@ class _ModifiersLayoutState extends State<ModifiersLayout> {
                     ),
                 ],
               ),
+            ),
+          ),
+
+          // Canvas
+          const SizedBox(height: 16),
+
+          const Text(
+            "Live Preview:",
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 8),
+
+          Expanded(
+            child: Container(
+              clipBehavior: Clip.hardEdge,
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.grey[300]!, width: 0.5),
+                color: Colors.grey[50],
+              ),
+              alignment: Alignment.center, 
+              padding: EdgeInsets.all(4),
+
+              child: _buildCanvasContent(),
+
             ),
           ),
         ],

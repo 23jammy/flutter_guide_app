@@ -23,9 +23,9 @@ class _LayoutScreenState extends State<LayoutScreen> {
             child: Container(
               color: Colors.deepPurple[50],
               child: TabBar(
-                indicatorColor: Colors.deepPurple[700], 
-                labelColor: Colors.black, 
-                unselectedLabelColor: Colors.black.withValues(alpha:0.7), 
+                indicatorColor: Colors.deepPurple[700],
+                labelColor: Colors.black,
+                unselectedLabelColor: Colors.black.withValues(alpha: 0.7),
                 isScrollable: true,
                 tabAlignment: TabAlignment.center,
                 padding: EdgeInsets.symmetric(horizontal: 5),
@@ -40,12 +40,14 @@ class _LayoutScreenState extends State<LayoutScreen> {
           ),
         ),
 
-        body: TabBarView(children: [
-          CoreLayout(),
-          ModifiersLayout(),
-          Center(child: Text('Scroll')),
-          Center(child: Text('Responsive')),
-        ],)
+        body: TabBarView(
+          children: [
+            CoreLayout(),
+            ModifiersLayout(),
+            Center(child: Text('Scroll')),
+            Center(child: Text('Responsive')),
+          ],
+        ),
       ),
     );
   }
