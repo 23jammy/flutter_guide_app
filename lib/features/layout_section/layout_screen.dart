@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lecture/core/widgets/custom_appbar.dart';
 import 'package:lecture/features/layout_section/core_layout.dart';
+import 'package:lecture/features/layout_section/modifiers_layout.dart';
 
 class LayoutScreen extends StatefulWidget {
   const LayoutScreen({super.key});
@@ -41,6 +42,9 @@ class _LayoutScreenState extends State<LayoutScreen> {
 
         body: TabBarView(children: [
           CoreLayout(),
+          ModifiersLayout(),
+          Center(child: Text('Scroll')),
+          Center(child: Text('Responsive')),
         ],)
       ),
     );

@@ -38,7 +38,6 @@ class _CoreLayoutState extends State<CoreLayout> {
         return Stack(
           children: List.generate(cardCount, (index) {
             return Positioned(
-              // Multiply the index by 15 to cascade them diagonally!
               top: index * 25.0,
               left: index * 30.0,
               child: Container(
@@ -144,11 +143,13 @@ class _CoreLayoutState extends State<CoreLayout> {
 
           Expanded(
             child: Container(
+              clipBehavior: Clip.hardEdge,
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.grey[300]!, width: 0.5),
                 color: Colors.grey[50],
               ),
               alignment: Alignment.center,
+              padding: EdgeInsets.all(4),
 
               child: _buildActiveLayout(),
             ),
