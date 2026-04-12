@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lecture/core/widgets/custom_appbar.dart';
 import 'package:lecture/features/layout_section/core_layout.dart';
 import 'package:lecture/features/layout_section/modifiers_layout.dart';
+import 'package:lecture/features/layout_section/responsive_layout.dart';
 import 'package:lecture/features/layout_section/scroll_layout.dart';
 
 class LayoutScreen extends StatefulWidget {
@@ -46,7 +47,7 @@ class _LayoutScreenState extends State<LayoutScreen> {
             CoreLayout(),
             ModifiersLayout(),
             ScrollLayout(),
-            Center(child: Text('Responsive')),
+            ResponsiveLayout(),
           ],
         ),
       ),
