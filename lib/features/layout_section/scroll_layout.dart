@@ -12,7 +12,7 @@ class _ScrollLayoutState extends State<ScrollLayout> {
   String selectedScroll = 'ListView';
 
   // --- SHARED STATE ---
-  double itemCount = 20; // How many boxes to draw
+  double itemCount = 5; // How many boxes to draw
 
   // --- LISTVIEW & SINGLECHILDSCHROLLVIEW STATE ---
   String axisDirection = 'Vertical'; // Vertical or Horizontal

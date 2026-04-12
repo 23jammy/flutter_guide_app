@@ -29,7 +29,6 @@ class MenuCard extends StatelessWidget {
               color: cardColor,
               borderRadius: BorderRadius.circular(5),
             ),
-            margin: const EdgeInsets.symmetric(vertical: 10),
             alignment: Alignment.center,
             child: Text(
               text,

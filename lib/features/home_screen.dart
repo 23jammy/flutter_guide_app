@@ -15,38 +15,47 @@ class _HomeScreen extends State<HomeScreen> {
     return Scaffold(
       appBar: CustomAppbar(text: "Home"),
 
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            MenuCard(
-              text: "Buttons", 
-              textColor: Colors.black87, 
-              cardColor: Colors.teal[100]!, 
-              onTap: () {Navigator.pushNamed(context, '/buttons');}
+      body: Align(
+        alignment: Alignment.center,
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              MenuCard(
+                text: "Buttons",
+                textColor: Colors.black87,
+                cardColor: Colors.teal[100]!,
+                onTap: () {
+                  Navigator.pushNamed(context, '/buttons');
+                },
               ),
               MenuCard(
-              text: "Layout Lab", 
-              textColor: Colors.black87, 
-              cardColor: Colors.indigo[200]!, 
-              onTap: () {Navigator.pushNamed(context, '/layout');}
+                text: "Layout Lab",
+                textColor: Colors.black87,
+                cardColor: Colors.indigo[200]!,
+                onTap: () {
+                  Navigator.pushNamed(context, '/layout');
+                },
               ),
               MenuCard(
-              text: "Input Playground", 
-              textColor: Colors.white, 
-              cardColor: Colors.blue[600]!, 
-              onTap: () {Navigator.pushNamed(context, '/input');}
+                text: "Input Playground",
+                textColor: Colors.white,
+                cardColor: Colors.blue[600]!,
+                onTap: () {
+                  Navigator.pushNamed(context, '/input');
+                },
               ),
               MenuCard(
-              text: "Typography", 
-              textColor: Colors.white, 
-              cardColor: Colors.blueGrey[600]!, 
-              onTap: () {Navigator.pushNamed(context, '/typography');}
+                text: "Typography",
+                textColor: Colors.white,
+                cardColor: Colors.blueGrey[600]!,
+                onTap: () {
+                  Navigator.pushNamed(context, '/typography');
+                },
               ),
-          ],
+            ],
+          ),
         ),
       ),
     );
   }
 }
-
