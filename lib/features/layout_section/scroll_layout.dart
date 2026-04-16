@@ -60,19 +60,16 @@ class _ScrollLayoutState extends State<ScrollLayout> {
 
         return SingleChildScrollView(
           scrollDirection: scrollAxis,
-          // If vertical, use a Column. If horizontal, use a Row!
           child: scrollAxis == Axis.vertical
               ? Column(children: standardBoxes)
               : Row(children: standardBoxes),
         );
 
       case 'GridView':
-        // 2. The Strict Wrap: Perfect columns and rows
         return GridView.builder(
-          // GridView automatically scrolls vertically, so we don't need the axis toggle here
           itemCount: itemCount.toInt(),
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: gridColumns.toInt(), // Reads your slider!
+            crossAxisCount: gridColumns.toInt(), 
           ),
           itemBuilder: (context, index) {
             return _buildBox(index);
@@ -81,7 +78,6 @@ class _ScrollLayoutState extends State<ScrollLayout> {
 
       case 'ListView':
       default:
-        // 3. The Infinite Column/Row: Highly optimized for long lists
         return ListView.builder(
           scrollDirection: scrollAxis,
           itemCount: itemCount.toInt(),

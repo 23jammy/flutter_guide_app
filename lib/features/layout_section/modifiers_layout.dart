@@ -77,7 +77,6 @@ class _ModifiersLayoutState extends State<ModifiersLayout> {
         return Container(
           color: Colors.amber.shade100, // Light background to see the padding
           child: Padding(
-            // Reads all four of your padding sliders!
             padding: EdgeInsets.only(
               top: padTop,
               bottom: padBottom,

@@ -35,7 +35,6 @@ class _ResponsiveLayoutState extends State<ResponsiveLayout> {
   Widget _buildCanvasContent() {
     switch (selectedConcept) {
       case 'LayoutBuilder':
-        // 1. The Breakpoint: Changes completely based on width!
         return LayoutBuilder(
           builder: (context, constraints) {
             // If the box is squeezed smaller than 250px, show Mobile UI
@@ -66,7 +65,6 @@ class _ResponsiveLayoutState extends State<ResponsiveLayout> {
         );
 
       case 'Fractional Sizing':
-        // 2. The Percentage Sizer: Always takes up exactly 70% of the space
         return Center(
           child: FractionallySizedBox(
             widthFactor: 0.7, // 70% of parent width
@@ -79,10 +77,9 @@ class _ResponsiveLayoutState extends State<ResponsiveLayout> {
 
       case 'Auto Grid':
       default:
-        // 3. The Math Grid: Calculates columns based on available pixels
         return LayoutBuilder(
           builder: (context, constraints) {
-            // Math: Divide the available width by 80px to see how many boxes fit!
+            // Divide the available width by 80px to see how many boxes 
             int columns = (constraints.maxWidth / 80).floor();
             // Ensure at least 1 column so it doesn't crash if squeezed to 0
             columns = columns > 0 ? columns : 1;
@@ -110,9 +107,6 @@ class _ResponsiveLayoutState extends State<ResponsiveLayout> {
 
   @override
   Widget build(BuildContext context) {
-    // We wrap the entire page in a LayoutBuilder so we know EXACTLY
-    // how wide the user's physical phone is. This allows us to set the
-    // Slider's maximum value so the simulated box doesn't break the screen!
     return LayoutBuilder(
       builder: (context, pageConstraints) {
         // Calculate max width for the slider (Phone Width - padding)

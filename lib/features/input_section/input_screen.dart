@@ -48,7 +48,7 @@ class _InputScreenState extends State<InputScreen> {
 
                 // Standard Text Field
                 TextField(
-                  // onChanged fires every single time a key is pressed!
+                  // onChanged fires every single time a key is pressed
                   onChanged: (value) => setState(() => liveText = value),
                   decoration: const InputDecoration(
                     labelText: 'Standard Input',
@@ -61,7 +61,7 @@ class _InputScreenState extends State<InputScreen> {
 
                 // Password Text Field
                 TextField(
-                  obscureText: isPasswordHidden, // Hides the text!
+                  obscureText: isPasswordHidden, // Hides the text
                   decoration: InputDecoration(
                     labelText: 'Password Input',
                     border: const OutlineInputBorder(),
@@ -89,7 +89,7 @@ class _InputScreenState extends State<InputScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // 1. The Switch (On/Off)
+              // Switch (On/Off)
               SwitchListTile(
                 title: const Text('Notifications (Switch)'),
                 subtitle: Text(
@@ -103,7 +103,7 @@ class _InputScreenState extends State<InputScreen> {
               ),
               const Divider(),
 
-              // 2. The Checkbox (Yes/No)
+              //Checkbox (Yes/No)
               CheckboxListTile(
                 title: const Text('Agree to Terms (Checkbox)'),
                 value: isChecked,
@@ -111,7 +111,7 @@ class _InputScreenState extends State<InputScreen> {
               ),
               const Divider(),
 
-              // 3. The Radio Buttons (Pick ONE)
+              // 3. Radio Buttons 
               const Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
@@ -147,7 +147,6 @@ class _InputScreenState extends State<InputScreen> {
 
       case 'Form Validation':
       default:
-        // Forms MUST be wrapped in a Form widget with a GlobalKey
         return Form(
           key: _formKey,
           child: SingleChildScrollView(

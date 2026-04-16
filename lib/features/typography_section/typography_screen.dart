@@ -84,7 +84,7 @@ class _TypographyScreenState extends State<TypographyScreen> {
               ),
               child: Text(
                 sampleText,
-                // These properties belong to the Text widget, NOT the TextStyle!
+                // These properties belong to the Text widget
                 textAlign: aligns[selectedAlign],
                 maxLines: maxLines.toInt(),
                 overflow: overflows[selectedOverflow],

@@ -110,7 +110,7 @@ class ButtonScreen extends StatelessWidget {
           ),
           const SizedBox(height: 20),
 
-          // Elevated Button
+          // Text Button
           TextButton(
             style: TextButton.styleFrom(foregroundColor: Colors.blue),
             onPressed: () => _showClickMessage(context, 'Text Button'),
@@ -135,7 +135,7 @@ class ButtonScreen extends StatelessWidget {
           ),
           const SizedBox(height: 20),
 
-          // Elevated Button
+          // Icon Button
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
